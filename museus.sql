@@ -1,0 +1,20 @@
+CREATE TABLE tipo (
+  id_tipo INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  descritivo VARCHAR(100) NULL,
+  PRIMARY KEY(idtipo)
+);
+
+CREATE TABLE museu (
+  id_museu INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  tipo_idtipo INTEGER UNSIGNED NOT NULL,
+  nome VARCHAR(100) NULL,
+  pais VARCHAR(80) NULL,
+  PRIMARY KEY(id_museu),
+  INDEX museu_FKIndex1(tipo_idtipo),
+  FOREIGN KEY(tipo_idtipo)
+    REFERENCES tipo(id_tipo)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION
+);
+
+
